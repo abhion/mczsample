@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dash</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css"
+        integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="full-container">
+        <!-- <nav>
+            <div id="logo-container">
+                <a href="http://www.fourcorners.asia/">
+                    <img id="logo" src="http://www.fourcorners.asia/wp-content/uploads/2018/01/logoopti.png" alt="">
+                </a>
+                <button id="close-menu-btn">
+                    x
+                </button>
+            </div>
+            
+        </nav> -->
+        <div class="content">
+            <header>
+                <div id="header-container">
+                    <div id="heading">
+                        <h2>Dashboard</h2>
+                        <div id="dropdown-container">
+                            <button id="room-dropdown-btn">
+                                <span id="dropdownTxtContent">Critical Room</span> <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <ul name="" id="roomTypeDrop">
+                                <li class="roomTypeLi">Critical Room</li>
+                                <li class="roomTypeLi">Meeting Room</li>
+                                <li class="roomTypeLi">Zone_1</li>
+                                <li class="roomTypeLi">Zone_2</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div id="dateTime"> </div>
+                </div>
+            </header>
+            <div id="dash-content">
+
+                <!--SUMMARY-->
+                <div id="summaryPageContainer">
+                    <div id="upsAhuContainer">
+                        <div id="upsFullContainer">
+                            <h4 id="upsHeader" class="text-center margin-bt-10">UPS</h4>
+                            <div id="upsContainer">
+                                <div class="ups-box">
+                                    <img src="assets/images/ups.png" alt="ups" class="ups-img">
+                                    <h5>60kVA</h5>
+                                </div>
+                                <div class="ups-box danger">
+                                    <img src="assets/images/ups.png" alt="ups" class="ups-img">
+                                    <h5>60kVA</h5>
+                                </div>
+                                <div class="ups-box">
+                                    <img src="assets/images/ups.png" alt="ups" class="ups-img">
+                                    <h5>60kVA</h5>
+                                </div>
+                                <div class="ups-box">
+                                    <img src="assets/images/ups.png" alt="ups" class="ups-img">
+                                    <h5>40kVA</h5>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="summarySecondSectionContainer">
+                            <div id="pacContainer">
+                                <h3>PAC</h3>
+                                <div class="pac-box margin-top-10">
+                                    <div class="pac-img-container">
+                                        <img class="pac-img" src="assets/images/hvac.png" alt="">
+                                        <img class="pac-img margin-top-10" src="assets/images/hvacdisabled.png" alt="">
+                                    </div>
+                                    <div class="pac-item no-border">
+                                        <h4 class="margin-top-10">PAC 1</h4>
+                                        <!-- <img src="assets/images/hvac.png" class="pac-img" alt="hvac1">
+                                     <img src="assets/images/hvacdisabled.png" class="pac-img" alt="hvac1"> -->
+                                        <h4>PAC 2</h4>
+                                    </div>
+                                    <div class="pac-temp pac-item">
+                                        <h3 class="text-center">Supply temp</h3>
+                                        <h4 class="text-center margin-top-10">25&deg;C</h4>
+                                        <h4 class="text-center">0&deg;C</h4>
+                                    </div>
+                                    <div class="pac-room-container pac-item">
+                                        <h4 class="text-center">Server Room</h4>
+                                        <div class="room-temp-container margin-top-10">
+                                            <div class="room-temp-item">
+                                                <h4><span class="fas fa-temperature-high"></span></h4>
+                                                <h4>27&deg;C</h4>
+                                            </div>
+                                            <div class="room-temp-item">
+                                                <h4><span class="fas fa-tint"></span></h4>
+                                                <h4>12%</h4>
+                                            </div>
+                                            <div class="room-temp-item">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pac-room-container pac-item">
+                                        <h4 class="text-center">Electric Room</h3>
+                                            <div class="room-temp-container margin-top-10">
+                                                <div class="room-temp-item">
+                                                    <h4><span class="fas fa-temperature-high"></span></h4>
+                                                    <h4>27&deg;C</h4>
+                                                </div>
+                                                <div class="room-temp-item">
+                                                    <h4><span class="fas fa-tint"></span></h4>
+                                                    <h4>12%</h4>
+                                                </div>
+                                                <div class="room-temp-item">
+
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="pac-room-container pac-item">
+                                        <h4 class="text-center">PAC Room</h4>
+                                        <div class="room-temp-container margin-top-10">
+                                            <div class="room-temp-item">
+                                                <h4><span class="fas fa-temperature-high"></span></h4>
+                                                <h4>27&deg;C</h4>
+                                            </div>
+                                            <div class="room-temp-item">
+                                                <h4><span class="fas fa-tint"></span></h4>
+                                                <h4>12%</h4>
+                                            </div>
+                                            <div class="room-temp-item">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="ahuFullContainer">
+                                <h4 class="margin-bt-10">AHU</h4>
+                                <div id="ahuContainer">
+                                    <div class="ahu-box">
+                                        <div class="ahu-desc">
+                                            <h4 class="ahu-name">AHU 1</h4>
+                                            <div class="ahu-state">
+                                                <h5>Status</h5> <input type="checkbox" id="switch1" checked
+                                                    class="toggle-check" /><label for="switch1">Toggle</label>
+                                            </div>
+                                        </div>
+                                        <div class="cfm-container"><span id="ahu1Cfm">11500</span> <span>CFM</span>
+                                        </div>
+                                    </div>
+                                    <div class="ahu-box">
+                                        <div class="ahu-desc">
+                                            <h4 class="ahu-name">AHU 2</h4>
+                                            <div class="ahu-state">
+                                                <h5>Status</h5><input type="checkbox" id="switch2"
+                                                    class="toggle-check" /><label for="switch2">Toggle</label>
+                                            </div>
+                                        </div>
+                                        <div class="cfm-container"><span id="ahu1Cfm">0</span> <span>CFM</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Summary footer-->
+                    <div id="summaryMainContent">
+                        <div id="energyContainer">
+                            <h3 class="margin-bt-10">Energy Meters</h3>
+                            <div id="energyMeterContainer">
+                                <div id="energy1Container" class="energy-item">
+                                    <h3 class="energy-header">EB Incomer</h3>
+                                    <div class="chart-container">
+                                        <canvas id="ebChart"></canvas>
+                                    </div>
+                                    
+                                </div>
+                                <div id="energy2Container" class="energy-item">
+                                    <h3 class="energy-header">DG Incomer</h3>
+                                    <div class="chart-container">
+                                        <canvas id="dgChart"></canvas>
+                                    </div>
+                                </div>
+                                <div id="energy3Container" class="energy-item">
+                                    <h3 class="energy-header">Server Source</h3>
+                                    <div class="chart-container">
+                                        <canvas id="serverSourceEnergyChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="doughnutContainer">
+                            <canvas id="doughnutCanvas" width="250px" height="250px"></canvas>
+                        </div>
+
+                    </div>
+                    <!--End summary footer-->
+                </div>
+                <!--END SUMMARY-->
+                <div id="dash-content-1" style="display: none;">
+                    <!--CRITICAL ROOM-->
+                    <h3 id="subRoomTypeTxt"></h3>
+                    <div id="dash-content-1-left" class="animated currentRoomType">
+
+                    </div>
+                    <!--END CRITICAL ROOM-->
+                    <div id="dash-content-1-right">
+                        <div id="chart-container">
+                            <!-- <div id="chart">
+                                <canvas id="myChart" width="100%" height="100%"></canvas>
+                            </div> -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- <script src="https://kit.fontawesome.com/fd0ed899ab.js" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.min.js"
+        integrity="sha256-TQq84xX6vkwR0Qs1qH5ADkP+MvH0W+9E7TdHJsoIQiM=" crossorigin="anonymous"></script> -->
+    <script src="fontawesome.min.js"></script>
+    <script src="Chart.bundle.min.js"></script>
+    <script src="paho-mqtt.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
