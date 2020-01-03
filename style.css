@@ -596,11 +596,18 @@ background: linear-gradient(10deg, rgba(241,141,17,1) 0%, rgba(249,139,3,1) 1%, 
     .pac-box{
         flex-wrap: wrap;
     }
+    .pac-item{
+        border: none;
+    }
+    .pac-item.no-border{
+        justify-content: flex-end;
+    }
     #ahuFullContainer{
         width: 90%;
         margin: auto;
 
     }
+
     .content{
         width: 100%;
     }
@@ -682,6 +689,9 @@ background: linear-gradient(10deg, rgba(241,141,17,1) 0%, rgba(249,139,3,1) 1%, 
     }
     #guage-label{
         left: 42%;
+    }
+    .hide-ls-992{
+        display: none !important;
     }
     
 }
