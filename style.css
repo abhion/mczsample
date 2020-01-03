@@ -26,6 +26,9 @@ a{
 .no-border{
     border: none !important;
 }
+.border-rt-none{
+    border-right: none !important;
+}
 .pac-item.no-border{
     display: flex;
     flex-direction: column;
@@ -44,7 +47,7 @@ body{
 }
 .content{
     flex-basis: 100%;
-    
+    min-height: 100vh;
 }
 #logo{
     max-width: 45%;
@@ -90,7 +93,8 @@ body{
     padding: 0;
     overflow: hidden;
     position: absolute;
-    background-color: #1c709855;
+    background-color: #1c7fa5;
+    top: 77px;
 }
 #roomTypeDrop li{
     cursor: pointer;
@@ -161,31 +165,51 @@ body{
 #header-container{
     background-color: #31394d88;
     border-radius: 3px;
-    padding: 20px;
+    padding: 13px;
     display: flex;
     justify-content: space-between;
+}
+#headerRight{
+    display: flex;
+}
+#homeIconContainer{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 1.9rem;
+}
+#homeIconContainer:hover{
+    background-color: #3dafd277;
 }
 #dateTime{
     font-size: 14px;
 }
 #dash-content{
-    height: calc(100% - 64px);
+    /* height: calc(100% - 64px); */
     background-color: #31394d88;
     margin-top: 3px;
     border-radius: 3px;
+    min-height: 100vh;
 }
 
 #dash-content-1{
-    display: flex;
-    justify-content: space-evenly;
     padding: 29px 3px;
+
 }
+
 #dash-content-1-left{
-    flex-basis: 40%;
-    display: flex;
+    display: grid;
+    grid-template-rows: 320px 320px;
+    grid-template-columns: 40% 1fr;
 }
+
 #dash-content-1-right{
     flex-basis: 40%;
+}
+#subRoomTypeTxt{
+    text-align: center;
 }
 
 #upsAhuContainer{
@@ -214,6 +238,7 @@ body{
 }
 .ups-box.danger{
     background: linear-gradient(to right, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(231,56,39,1) 49%, rgba(231,56,39,1) 100%);
+    border-radius: 3px;
 }
 #summarySecondSectionContainer{
     flex-basis: 77%;
@@ -240,7 +265,7 @@ body{
     width: 30%;
 }
 .cfm-container{
-    width: 50%;
+    width: 65%;
     text-align: right;
 }
 .cfm-container span:first-of-type{
@@ -249,6 +274,114 @@ body{
 .cfm-container span:nth-of-type(2){
     display: block;
     text-align: right;
+}
+.guage-container{
+    position: relative;
+    /* width: 500px;
+    height: 508px; */
+    border: 1px solid rgb(255, 255, 255, 0.5);
+    text-align: center;
+    /* border-bottom: none; */
+}
+#guageContent{
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    grid-gap: 3%;
+}
+.guageHeader{
+    padding: 8px 0px;
+}
+.guage-chart-container{
+    display: grid;
+    grid-template-columns:  1fr;
+    grid-template-rows: 300px 300px;
+}
+#guage-label{
+    position: absolute;
+    top: 25%;
+    color: #333;
+    left: 44%;
+    font-size: 2rem;
+}
+#guage-label::before{
+    content: "0";
+    position: absolute;
+    left: -80%;
+    font-size: 20px;
+    top: 0;
+}
+#guage-label::after{
+    content: "50";
+    position: absolute;
+    font-size: 20px;
+    right: -80%;
+    top: 0;
+}
+#chwContainer{
+    position: relative;
+}
+#chwLabel{
+    position: absolute;
+    font-size: 2rem;
+    top: 42%;
+    left: 45%;
+    color: #333;
+}
+#chwLabel::before{
+    content: "0";
+    position: absolute;
+    left: -35%;
+    font-size: 1rem;
+    top: 97%;
+    color: black;
+    bottom: 22%;
+}
+#chwLabel::after{
+    content: "100";
+    position: absolute;
+    font-size: 20px;
+    bottom: 22%;
+    color: black;
+    font-size: 1rem;
+    /* right: -50px; */
+    top: 97%;
+    left: 98%;
+}
+#returnChartContainer {
+    margin-top: 30px;
+}
+
+svg > path{
+    transition: 0.3s;
+}
+.guaugeDescContainer{
+    /* min-height: 180px; */
+    border: 1px solid #ffffff4d;
+    background-color: rgb(255, 255, 255, 0.1);
+    margin-top: 10px;
+}
+.duct-desc-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 
+}
+.duct-item{
+    border-right: 1px solid rgba(255, 255, 255, 0.3)
+}
+.duct-item h3{
+    font-weight: 400;
+    
+}
+.duct-item h4{
+    font-weight: 400;
+}
+.duct-header{
+    font-weight: 400;
+    font-size: 1.6rem;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.3);
+}
+.duct-img{
+    width: 30px;
+    height: 30px;
 }
 .toggle-check{
     height: 0;
@@ -261,21 +394,25 @@ label {
 	text-indent: -9999px;
 	width: 38px;
 	height: 20px;
-	background: #aba5a5;
+	background: #6b6b6b;
 	display: block;
 	border-radius: 100px;
     position: relative;
     margin-left: 8px;
 }
 .ahu-box{
+    cursor: pointer;
     margin-top: 2px;
-    background-color: #28a0c199;
+    background-color: #2cd1ff99;
     flex-basis: 45%;
     height: 100%;
     border-radius: 3px;
     padding: 2rem 6px;
     display: flex;
     position: relative;
+}
+.ahu-box:hover{
+    background-color: #04c8ff;
 }
 .ahu-desc{
     width: 35%;
@@ -295,7 +432,7 @@ label:after {
 }
 
 input:checked + label {
-	background: #82b7ee;
+	background: #91bce8;
 }
 
 input:checked + label:after {
@@ -315,7 +452,11 @@ label:active:after {
     padding: 1rem 3px;
     border: 1px solid yellow;
     border-radius: 3px;
+    cursor: pointer;
     background: linear-gradient(10deg, rgba(241,141,17,1) 0%, rgba(249,139,3,1) 1%, rgba(241,197,17,1) 100%);
+}
+.pac-box:hover{
+    background: linear-gradient(10deg, rgba(241,141,17,1) 0%, rgb(249, 173, 3) 1%, rgba(241,197,17,1) 100%);
 }
 .pac-item{
     display: flex;
@@ -363,7 +504,7 @@ background: linear-gradient(90deg, rgba(226,26,26,1) 0%, rgba(253,29,29,1) 42%, 
 background: rgb(241,141,17);
 background: linear-gradient(10deg, rgba(241,141,17,1) 0%, rgba(249,139,3,1) 1%, rgba(241,197,17,1) 100%);
     box-shadow: 0 0 5px 1px #6f6201;
-    width: 45%;
+    width: 70%;
     margin: auto;
     padding: 3.2rem 1rem;
 }
@@ -373,9 +514,18 @@ background: linear-gradient(10deg, rgba(241,141,17,1) 0%, rgba(249,139,3,1) 1%, 
 }
 #energyMeterContainer{
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
-    grid-gap: 1%;
+     grid-template-columns: repeat(4, 1fr);
+     grid-gap: 1%;
+     grid-template-areas: "a a b b" ". c c .";
+}
+#energy1Container{
+    grid-area: a;
+}
+#energy2Container{
+    grid-area: b;
+}
+#energy3Container{
+    grid-area: c;
 }
 #summaryMainContent{
     display: grid;
@@ -385,7 +535,7 @@ background: linear-gradient(10deg, rgba(241,141,17,1) 0%, rgba(249,139,3,1) 1%, 
 }
 
 .energy-header{
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid #22a9b7;
     padding: 10px;
     font-weight: 400;
 }

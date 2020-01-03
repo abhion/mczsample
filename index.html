@@ -30,20 +30,15 @@
                 <div id="header-container">
                     <div id="heading">
                         <h2>Dashboard</h2>
-                        <div id="dropdown-container">
-                            <button id="room-dropdown-btn">
-                                <span id="dropdownTxtContent">Critical Room</span> <i class="fas fa-chevron-down"></i>
-                            </button>
-                            <ul name="" id="roomTypeDrop">
-                                <li class="roomTypeLi">Critical Room</li>
-                                <li class="roomTypeLi">Meeting Room</li>
-                                <li class="roomTypeLi">Zone_1</li>
-                                <li class="roomTypeLi">Zone_2</li>
-                            </ul>
-                        </div>
+                    
 
                     </div>
-                    <div id="dateTime"> </div>
+                    <div id="headerRight">
+                            <div id="dateTime"> </div>
+                            <div id="homeIconContainer">
+                                <span class="fas fa-home"></span>
+                            </div>
+                        </div>
                 </div>
             </header>
             <div id="dash-content">
@@ -76,7 +71,7 @@
                         <div id="summarySecondSectionContainer">
                             <div id="pacContainer">
                                 <h3>PAC</h3>
-                                <div class="pac-box margin-top-10">
+                                <div class="pac-box margin-top-10" id="pacBoxId">
                                     <div class="pac-img-container">
                                         <img class="pac-img" src="assets/images/hvac.png" alt="">
                                         <img class="pac-img margin-top-10" src="assets/images/hvacdisabled.png" alt="">
@@ -146,7 +141,7 @@
                             <div id="ahuFullContainer">
                                 <h4 class="margin-bt-10">AHU</h4>
                                 <div id="ahuContainer">
-                                    <div class="ahu-box">
+                                    <div class="ahu-box" id="ahuBox1">
                                         <div class="ahu-desc">
                                             <h4 class="ahu-name">AHU 1</h4>
                                             <div class="ahu-state">
@@ -157,7 +152,7 @@
                                         <div class="cfm-container"><span id="ahu1Cfm">11500</span> <span>CFM</span>
                                         </div>
                                     </div>
-                                    <div class="ahu-box">
+                                    <div class="ahu-box" id="ahuBox2">
                                         <div class="ahu-desc">
                                             <h4 class="ahu-name">AHU 2</h4>
                                             <div class="ahu-state">
@@ -206,22 +201,7 @@
                     <!--End summary footer-->
                 </div>
                 <!--END SUMMARY-->
-                <div id="dash-content-1" style="display: none;">
-                    <!--CRITICAL ROOM-->
-                    <h3 id="subRoomTypeTxt"></h3>
-                    <div id="dash-content-1-left" class="animated currentRoomType">
-
-                    </div>
-                    <!--END CRITICAL ROOM-->
-                    <div id="dash-content-1-right">
-                        <div id="chart-container">
-                            <!-- <div id="chart">
-                                <canvas id="myChart" width="100%" height="100%"></canvas>
-                            </div> -->
-                        </div>
-                    </div>
-
-                </div>
+               
 
             </div>
         </div>
@@ -229,10 +209,11 @@
     <!-- <script src="https://kit.fontawesome.com/fd0ed899ab.js" crossorigin="anonymous"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.min.js"
         integrity="sha256-TQq84xX6vkwR0Qs1qH5ADkP+MvH0W+9E7TdHJsoIQiM=" crossorigin="anonymous"></script> -->
-    <script src="fontawesome.min.js"></script>
-    <script src="Chart.bundle.min.js"></script>
-    <script src="paho-mqtt.js"></script>
-    <script src="app.js"></script>
+    <script src="assets/js/fontawesome.min.js"></script>
+    <script src="assets/js/Chart.bundle.min.js"></script>
+    <script src="assets/js/paho-mqtt.js"></script>
+    <script src="assets/js/connecttobroker.js"></script>
+    <script src="assets/js/app.js"></script>
 
 </body>
 
