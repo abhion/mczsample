@@ -5,9 +5,19 @@ const suppChartCtx = document.querySelector('#supplyChart').getContext('2d');
 const retChartCtx = document.querySelector('#retChart').getContext('2d');
 const homeIconContainer =  document.querySelector('#homeIconContainer');
 const chwLabel = document.querySelector('#chwLabel');
+const guageHeader = document.querySelector('.guageHeader');
 
 const chwSvgPaths = document.querySelectorAll('#chwSvgContainer path');
 const fillColors = ['#28ED99','#4BF7FF','#2C90D5','#6618CD','#1537AC','#EE1ADC','#F732BF','#FF4BA8','#FF0000','#FF0000','#E31212'];
+
+const ahuTypeFromUrl = new URL(location.href).searchParams.get('ahuType');
+let selectedAhuType;
+
+if(ahuTypeFromUrl){
+  debugger
+  guageHeader.innerText = 'AHU' + ahuTypeFromUrl;
+  selectedAhuType = ahuTypeFromUrl;
+}
 
 let suppChartObj = new Chart(suppChartCtx, {
     type: 'line',

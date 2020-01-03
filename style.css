@@ -468,6 +468,11 @@ label:active:after {
     padding: 8px 21px;
     border-left: 1px solid;
 }
+.sub-page-inset:hover{
+    box-shadow: inset 0 0 5px 3px #efa705;
+    cursor: pointer;
+    border: none;   
+}
 .pac-img-container{
     display: flex;
     flex-direction: column;
@@ -489,6 +494,8 @@ label:active:after {
 }
 .ahu-name{
     padding-top: 3px;
+    position: absolute;
+    top: 0;
 }
 .ups-img{
     width: 40px;
@@ -553,10 +560,7 @@ background: linear-gradient(10deg, rgba(241,141,17,1) 0%, rgba(249,139,3,1) 1%, 
 #relativeHumVal span{
     font-size: 25px;
 }
-canvas{
-    width: 100% !important;
-    height: 100% !important;
-}
+
 #doughnutCanvas{
     width: 90% !important;
     height: 90% !important;
@@ -572,9 +576,33 @@ canvas{
 .visibility-hidden{
     visibility: hidden;
 }
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 992px) {
+    canvas{
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+@media screen and (max-width: 992px) {
     html{
         font-size: 13px;
+    }
+    #upsFullContainer{
+        margin: 10px;
+    }
+    #pacContainer{
+        width: 90%;
+        margin: auto;
+    }
+    .pac-box{
+        flex-wrap: wrap;
+    }
+    #ahuFullContainer{
+        width: 90%;
+        margin: auto;
+
+    }
+    .content{
+        width: 100%;
     }
     #dash-content-1{
         display: block;
@@ -616,4 +644,44 @@ canvas{
     .small-box-left h4{
         font-size: 0.7rem;
     }
+    #upsAhuContainer{
+        flex-direction: column;
+    }
+    #summaryMainContent{
+        grid-template-columns: 95%;
+        grid-template-rows: 1fr 1fr;
+        margin: auto;   
+    }
+    #energyMeterContainer{
+       display: flex;
+      flex-direction: column;
+      
+    }
+    #energyContainer{
+        margin: 10px;
+    }
+    .energy-item{
+        min-height: 100px;
+    
+    }
+    #doughnutCanvas{
+        width: 355px !important;
+        height: 355px !important;
+    }
+    #dash-content-1-left{
+        grid-template-columns: 1fr;
+    }
+    #guageContent{
+        grid-template-columns: 1fr;
+    }
+    #guage-label::before{
+        left: -50%;
+    }
+    #guage-label::after{
+        right: -43%;
+    }
+    #guage-label{
+        left: 42%;
+    }
+    
 }

@@ -18,36 +18,15 @@ const pacBoxId =  document.querySelector('#pacBoxId');
 const homeIconContainer =  document.querySelector('#homeIconContainer');
 const ahuBoxes = document.querySelectorAll('.ahu-box');
 const toggleCheckBox = document.querySelectorAll('.toggle-check');
-// let chart = new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//         labels: ['Return CO2', 'Supply CO2', 'Amps', 'Volts'],
-//         datasets: [{
-//             label: 'Average values',
-//             data: averageArray,
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(255, 206, 86, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255, 99, 132, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 206, 86, 1)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero: true
-//                 }
-//             }]
-//         }
-//     }
-// });
+
+const supplyTempCont = document.querySelector('#supplyTempCont');
+const serverRoomCont = document.querySelector('#serverRoomCont');
+const electricRoomCont = document.querySelector('#electricRoomCont');
+const pacRoomCont = document.querySelector('#pacRoomCont');
+
+const ahuBox1 = document.querySelector('#ahuBox1');
+const ahuBox2 = document.querySelector('#ahuBox2');
+
 
 let ebChartObj = new Chart(ebChartCtx, {
     type: 'line',
@@ -172,7 +151,29 @@ let serverSourceEnergyChartObj = new Chart(serverSourceEnergyChartCtx, {
     }
   })
 
+  ahuBox1.addEventListener('click', function(){
+    location.href = 'pages/ahu.html?ahuType=1'
+  })
+  ahuBox2.addEventListener('click', function(){
+    location.href = 'pages/ahu.html?ahuType=2'
+  })
 
+supplyTempCont.addEventListener('click', function(){
+  debugger
+  location.href = '/pages/criticalrooms.html?roomType=Supply Room';
+})
+serverRoomCont.addEventListener('click', function(){
+  debugger
+  location.href = '/pages/criticalrooms.html?roomType=Server Room';
+})
+electricRoomCont.addEventListener('click', function(){
+  debugger
+  location.href = '/pages/criticalrooms.html?roomType=Electric Room';
+})
+pacRoomCont.addEventListener('click', function(){
+  debugger
+  location.href = '/pages/criticalrooms.html?roomType=PAC Room';
+})
 
 
 
@@ -194,22 +195,13 @@ homeIconContainer.addEventListener('click', function(){
 
 //redirect to PAC page after click on container
 pacBoxId.addEventListener('click', function(){
-  location.href = '/pages/criticalrooms.html';
+  // location.href = '/pages/criticalrooms.html';
 })
 
-//redirect to AHU page after click
-
-ahuBoxes.forEach(function(ahuBox){
-  debugger
-  ahuBox.addEventListener('click', function(){
-    debugger
-    location.href = '/pages/ahu.html';
-  })
-})
 
 toggleCheckBox.forEach(function(checkbox){
   checkbox.addEventListener('change', function(event){
-    debugger
+    
     checkbox.checked = !checkbox.checked;
   })
 })

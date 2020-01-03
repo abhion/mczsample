@@ -3,7 +3,7 @@
 const dateTime = document.querySelector('#dateTime');
 
 const roomDropDownBtn = document.querySelector('#room-dropdown-btn');
-const dropdownTxtContent = document.querySelector('#dropdownTxtContent');
+const startStopSlideBtn = document.querySelector('#startStopSlideBtn');
 const roomTypeDrop = document.querySelector('#roomTypeDrop');
 const roomTypeLi = document.querySelectorAll('.roomTypeLi');
 const bodyVal = document.querySelector('body');
@@ -15,10 +15,18 @@ const tempGraphCtx = document.querySelector('#tempGraph').getContext('2d');
 
 let returnCarbonArray = [], supplyCarbArray = [], ampArray = [], voltArray = [], averageArray = [];
 let roomTypes = ['Critical Room', 'Meeting Room', 'Zone_1', 'Zone_2'];
-let criticalRoomTypes = ['Hub Room', 'Battery Room', 'Server Room', 'Electrical Room'];
-let selectedRoomType = null, roomIndex = 0, criticalRoomIndex = 0;
+let criticalRoomTypes = ['PAC Room', 'Server Room', 'Electrical Room'];
+let selectedRoomType = null, criticalRoomIndex = 0;
 
-let slideRooms = true;
+const roomFromUrl = new URL(location.href).searchParams.get('roomType');
+if(roomFromUrl){
+  debugger
+  selectedRoomType = roomFromUrl;
+  criticalRoomIndex = criticalRoomTypes.indexOf(selectedRoomType);
+  subRoomTypeTxt.innerText = roomFromUrl;
+}
+
+let slideRooms = false;
 
 let tempChartObj = new Chart(tempGraphCtx, {
     type: 'line',
@@ -85,6 +93,11 @@ let rhChartObj = new Chart(rhGraphCtx, {
       }
   });
 
+  startStopSlideBtn.addEventListener('click', function(){
+    slideRooms = !slideRooms;
+    this.innerText = this.innerText === 'Start Slide' ? 'Stop Slide' : 'Start Slide'
+  })
+
 function updateTime() {
     dateTime.innerText = new Date().toLocaleString();
 }
@@ -96,33 +109,7 @@ function refreshChart() {
     chart.update();
 }
 
-//show different room type
 
-function changeRoomType(roomType){
-
-    roomIndex = roomTypes.indexOf(roomType);
-    dropdownTxtContent.innerText = roomType;
-
-    if(roomIndex == 0){
-        subRoomTypeTxt.style.display = 'block';
-    }
-    else{
-        subRoomTypeTxt.style.display = 'none';
-    }
-    const currentRoomType = document.querySelector('.currentRoomType');
-   
-    currentRoomType.classList.add('hidden');
-    currentRoomType.classList.remove('currentRoomType');
-    
-    const roomTypeToDisplay = document.querySelector('#dash-content-'+ (roomIndex+1) + '-left');
-    roomTypeToDisplay.classList.remove('hidden');
-    roomTypeToDisplay.classList.add('fadeIn', 'currentRoomType');
-
-    setTimeout(() => {
-        roomTypeToDisplay.classList.remove('fadeIn');
-    }, 1000);
-    
-}
 
 function animateCSS(element, animationName, callback) {
     const node = element;
@@ -165,15 +152,14 @@ changeCriticalRoom(criticalRoomTypes[0]);
 //change Critical room if room type is critical room
 setInterval(function () {
    
-    if(roomIndex == 0){
-    if (criticalRoomIndex == 3) {
+    if (criticalRoomIndex == 2) {
         changeCriticalRoom(criticalRoomTypes[criticalRoomIndex]);
         criticalRoomIndex = 0;
     } else {
         changeCriticalRoom(criticalRoomTypes[criticalRoomIndex]);
         ++criticalRoomIndex;
     }
-    }
+    
 }, 8000);
 
 //redirect to home page after click on Home icon in header
@@ -192,8 +178,9 @@ roomDropDownBtn.addEventListener('click', function () {
 //show room details based on selected Li from dropdown
 roomTypeLi.forEach(function (v) {
     v.addEventListener('click', function (event) {
+      
         selectedRoomType = this.innerText;
-        changeRoomType(selectedRoomType);
+        changeCriticalRoom(selectedRoomType, true);
     })
 })
 bodyVal.addEventListener('click', function () {
@@ -204,8 +191,10 @@ bodyVal.addEventListener('click', function () {
 
 bodyVal.addEventListener('mousemove', function(){
     slideRooms = false;
+    startStopSlideBtn.innerText = 'Start Slide';
     setTimeout(() => {
         slideRooms = true;
+        startStopSlideBtn.innerText = 'Stop Slide';
     }, 20000);
 })
 // {
