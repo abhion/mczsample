@@ -84,7 +84,7 @@ let suppChartObj = new Chart(suppChartCtx, {
       }
   });
 setInterval(function(){
-   let randomNo = randomIntFromInterval(49, 50);
+   let randomNo = randomIntFromInterval(0, 50);
   //  let randomNo = 50;
     let limitNo = (randomNo/5);
     
@@ -99,14 +99,15 @@ setInterval(function(){
            
        }
        else{
-        guageSpeedPaths[i].style.display = 'none';
+        // guageSpeedPaths[i].style.display = 'none';
+        guageSpeedPaths[i].style.fill = 'white';
        }
        
    }
 
 }, 3000);
 setInterval(function(){
-   let randomNo = randomIntFromInterval(99, 100);
+   let randomNo = randomIntFromInterval(0, 100);
   //  let randomNo = 50;
     let limitNo = (randomNo/10);
     
@@ -122,7 +123,8 @@ setInterval(function(){
            
        }
        else{
-        chwSvgPaths[i].style.display = 'none';
+        // chwSvgPaths[i].style.display = 'none';
+        chwSvgPaths[i].style.fill = 'white';
        }
        
    }
